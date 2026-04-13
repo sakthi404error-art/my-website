@@ -1,152 +1,88 @@
-// Toggle Mobile Menu
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+// Typing Effect
+const textArray = ["Sakthi R P", "HR Professional", "Tech Enthusiast"];
+let index = 0;
+let charIndex = 0;
+const typingElement = document.getElementById("typing");
 
-menuToggle.addEventListener("click", () => {
-    if (navLinks.style.display === "flex") {
-        navLinks.style.display = "none";
+function type() {
+    if (charIndex < textArray[index].length) {
+        typingElement.textContent += textArray[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
     } else {
-        navLinks.style.display = "flex";
+        setTimeout(erase, 2000);
     }
-});
-
-// Smooth Scroll
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({
-        behavior: "smooth"
-    });
 }
-// CONTACT FORM VALIDATION
-const form = document.getElementById("contactForm");
-const message = document.getElementById("formMessage");
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const userMessage = document.getElementById("message").value.trim();
-
-    // Basic validation
-    if (name === "" || email === "" || userMessage === "") {
-        message.style.color = "red";
-        message.textContent = "Please fill all fields!";
-        return;
+function erase() {
+    if (charIndex > 0) {
+        typingElement.textContent = textArray[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+    } else {
+        index = (index + 1) % textArray.length;
+        setTimeout(type, 500);
     }
+}
 
-    // Email validation
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (!email.match(emailPattern)) {
-        message.style.color = "red";
-        message.textContent = "Enter a valid email!";
-        return;
-    }
+// Scroll Effects (Navbar & Reveal)
+const header = document.querySelector("header");
+const revealElements = document.querySelectorAll(".fade-in");
 
-    // Success
-    message.style.color = "lightgreen";
-    message.textContent = "Message sent successfully!";
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.1 });
 
-    // Reset form
-    form.reset();
-});
-// ACTIVE NAV LINK ON SCROLL
-const sections = document.querySelectorAll("section");
-const navLinksAll = document.querySelectorAll(".nav-links a");
+revealElements.forEach(el => scrollObserver.observe(el));
 
 window.addEventListener("scroll", () => {
+    // Header shadow on scroll
+    header.classList.toggle("scrolled", window.scrollY > 50);
+    
+    // Active link highlighting
     let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (pageYOffset >= sectionTop) {
+    document.querySelectorAll("section").forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) {
             current = section.getAttribute("id");
         }
     });
 
-    navLinksAll.forEach(link => {
+    document.querySelectorAll(".nav-links a").forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
+        if (link.getAttribute("href").includes(current)) {
             link.classList.add("active");
         }
     });
 });
-// NAVBAR CHANGE ON SCROLL
-const header = document.querySelector("header");
 
-window.addEventListener("scroll", () => {
-    header.classList.toggle("scrolled", window.scrollY > 50);
+// Mobile Menu Toggle
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+    // For a real pro feel, you'd animate this with a class
 });
-// ADVANCED SCROLL REVEAL
-const reveals = document.querySelectorAll(".fade-in");
 
-function revealOnScroll() {
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const revealTop = el.getBoundingClientRect().top;
-
-        if (revealTop < windowHeight - 80) {
-            el.classList.add("show");
-        } else {
-            el.classList.remove("show");
-        }
-    });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-// PARALLAX EFFECT FOR HOME SECTION
-const home = document.querySelector(".home");
-
-window.addEventListener("scroll", () => {
-    let offset = window.scrollY;
-    home.style.backgroundPositionY = offset * 0.5 + "px";
+// Form Submission (Visual Only)
+document.getElementById("contactForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button");
+    const msg = document.getElementById("formMessage");
+    
+    btn.innerText = "Sending...";
+    setTimeout(() => {
+        btn.innerText = "Message Sent!";
+        msg.style.color = "#00ff00";
+        msg.textContent = "Thank you! I will get back to you soon.";
+        e.target.reset();
+    }, 1500);
 });
-// SMOOTH SCROLL WITH OFFSET FIX
-function scrollToSection(id) {
-    const element = document.getElementById(id);
-    const offset = 70;
 
-    const bodyRect = document.body.getBoundingClientRect().top;
-    const elementRect = element.getBoundingClientRect().top;
-    const elementPosition = elementRect - bodyRect;
-    const offsetPosition = elementPosition - offset;
-
-    window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-    });
-}
-// ===== TYPING EFFECT =====
-const textArray = [
-    "Sakthi R P",
-    "HR Professional",
-    "Web Developer",
-    "Business Enthusiast"
-];
-
-let index = 0;
-let charIndex = 0;
-const speed = 100;
-
-function typeEffect() {
-    if (charIndex < textArray[index].length) {
-        document.getElementById("typing").textContent += textArray[index].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeEffect, speed);
-    } else {
-        setTimeout(eraseEffect, 1500);
-    }
-}
-
-function eraseEffect() {
-    if (charIndex > 0) {
-        document.getElementById("typing").textContent =
-            textArray[index].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseEffect, speed / 2);
-    } else {
-        index = (index + 1) % textArray.length;
-        setTimeout(typeEffect, 300);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", typeEffect);
+// Init
+document.addEventListener("DOMContentLoaded", type);

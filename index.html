@@ -3,199 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Sakthi R P | HR Professional & Developer</title>
 
-    <!-- CSS -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- NAVBAR -->
-    <header>
-        <nav>
-            <div class="logo">MyPortfolio</div>
-
+    <header id="header">
+        <nav class="container">
+            <div class="logo">Sakthi<span>RP</span></div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-
-            <div class="menu-toggle" id="menuToggle">☰</div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <!-- HOME SECTION -->
+    <!-- HERO SECTION -->
     <section class="home" id="home">
-        <div class="home-text">
-           <h1>I am <span id="typing"></span></h1>
-
-<p>
-HR Professional with 8 months of real-world experience in recruitment, employee management, and workplace operations. 
-Passionate about combining Human Resources with technology to build efficient, people-focused systems.
-</p>
-
-            <button class="btn btn-primary" onclick="scrollToSection('projects')">View Projects</button>
-            <button class="btn btn-secondary" onclick="scrollToSection('contact')">Contact Me</button>
-        </div>
-
-        <div class="home-img">
-            <img src="main-pic.jpeg" alt="Profile Image">
+        <div class="container home-wrapper">
+            <div class="home-text">
+                <p class="greeting">Welcome to my professional space</p>
+                <h1>I am <span id="typing"></span></h1>
+                <p class="description">
+                    HR Professional with 8 months of experience in retail operations, bridging the gap between <strong>Human Capital</strong> and <strong>Modern Technology</strong>.
+                </p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">View Portfolio</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+                </div>
+            </div>
+            <div class="home-img">
+                <div class="img-border">
+                    <img src="main-pic.jpeg" alt="Sakthi RP - HR Professional">
+                </div>
+            </div>
         </div>
     </section>
-    <!-- ABOUT SECTION -->
-<!-- ABOUT SECTION -->
-<section class="about fade-in" id="about">
-    <div class="about-container">
 
-        <div class="about-content">
-
-            <!-- PROFILE IMAGE -->
-            <div class="profile-pic">
-                <img src="website-pic.jpeg" alt="Profile Picture">
-            </div>
-
-            <h2>About Me</h2>
-            <p>
-I am an enthusiastic HR professional currently working in the retail sector with hands-on experience in recruitment, employee coordination, and HR operations. 
-I have successfully managed hiring processes, handled employee engagement, and supported organizational growth.
-
-Along with HR, I have a strong interest in web development, which helps me understand digital systems and improve HR processes through technology. 
-I believe in continuous learning, adaptability, and delivering results in fast-paced environments.
-
-My goal is to grow into a dynamic HR professional who can contribute strategically to business success while also leveraging technology to improve efficiency.
-</p>
-
-            <h3>My Skills</h3>
-
-            <div class="skill">
-    <p>Recruitment & Talent Acquisition</p>
-    <div class="progress-bar">
-        <div class="progress hr"></div>
-    </div>
-</div>
-
-<div class="skill">
-    <p>Employee Relations</p>
-    <div class="progress-bar">
-        <div class="progress css"></div>
-    </div>
-</div>
-
-<div class="skill">
-    <p>MS Excel & HR Tools</p>
-    <div class="progress-bar">
-        <div class="progress js"></div>
-    </div>
-</div>
-
-<div class="skill">
-    <p>Web Development (HTML, CSS, JS)</p>
-    <div class="progress-bar">
-        <div class="progress html"></div>
-    </div>
-</div>
-
-        </div>
-
-    </div>
-</section>
-<section class="experience fade-in">
-    <h2 class="section-title">Experience</h2>
-
-    <div class="exp-box">
-        <h3>HR Executive – Retail Company</h3>
-        <p>Duration: 8 Months</p>
-        <ul>
-            <li>Handled end-to-end recruitment process</li>
-            <li>Coordinated interviews and onboarding</li>
-            <li>Maintained employee records and HR documentation</li>
-            <li>Improved employee engagement activities</li>
-        </ul>
-    </div>
-</section>
-<!-- PROJECTS SECTION -->
-<section class="projects" id="projects" class="fade-in">
-    <h2 class="section-title">My Projects</h2>
-
-    <div class="projects-container">
-
-        <!-- PROJECT 1 -->
-        <div class="project-card">
-            <div class="project-content">
-                <h3>Portfolio Website</h3>
-                <p>A modern personal portfolio website built using HTML, CSS, and JavaScript.</p>
-
-                <div class="project-buttons">
-                    <a href="#" class="btn btn-primary">Live Demo</a>
-                    <a href="#" class="btn btn-secondary">GitHub</a>
+    <!-- ABOUT & SKILLS -->
+    <section class="about section fade-in" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p>I am an enthusiastic HR professional currently working in the retail sector. I specialize in recruitment, employee coordination, and HR operations, with a unique edge in web development.</p>
+                    <p>My goal is to leverage digital systems to build efficient, people-focused workplace environments.</p>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span>Recruitment & Talent</span>
+                            <div class="progress-line"><span style="width: 90%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Employee Relations</span>
+                            <div class="progress-line"><span style="width: 85%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Web Dev (HTML/CSS/JS)</span>
+                            <div class="progress-line"><span style="width: 75%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>MS Excel/HR Tools</span>
+                            <div class="progress-line"><span style="width: 80%;"></span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- PROJECT 2 -->
-        <div class="project-card">
-            <div class="project-content">
-                <h3>HR Management System</h3>
-                <p>A system to manage employee records, attendance, and recruitment process.</p>
-
-                <div class="project-buttons">
-                    <a href="#" class="btn btn-primary">Live Demo</a>
-                    <a href="#" class="btn btn-secondary">GitHub</a>
+    <!-- EXPERIENCE SECTION -->
+    <section class="experience section fade-in" id="experience">
+        <div class="container">
+            <h2 class="section-title">Career Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Current</div>
+                    <div class="timeline-content">
+                        <h3>HR Executive</h3>
+                        <p class="company">Retail Sector | 8 Months</p>
+                        <ul>
+                            <li>Managed end-to-end recruitment cycles.</li>
+                            <li>Lead employee onboarding and engagement initiatives.</li>
+                            <li>Optimized HR documentation using digital tools.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- PROJECT 3 -->
-        <div class="project-card">
-            <div class="project-content">
-                <h3>E-commerce Website</h3>
-                <p>An online shopping platform with product listing, cart, and checkout features.</p>
-
-                <div class="project-buttons">
-                    <a href="#" class="btn btn-primary">Live Demo</a>
-                    <a href="#" class="btn btn-secondary">GitHub</a>
+    <!-- PROJECTS -->
+    <section class="projects section fade-in" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-users-cog"></i></div>
+                    <h3>HR Management System</h3>
+                    <p>Automated employee records and attendance tracking system.</p>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Professional Portfolio</h3>
+                    <p>A high-performance personal site built with modern JS.</p>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce Interface</h3>
+                    <p>Modern shopping UI with dynamic cart functionality.</p>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i> Source</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
-<!-- CONTACT SECTION -->
-<section class="contact" id="contact" class="fade-in">
-    <h2 class="section-title">Contact Me</h2>
+    <!-- CONTACT -->
+    <section class="contact section fade-in" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                    <p id="formMessage"></p>
+                </form>
+                
+                <div class="contact-info">
+                    <p>Open for HR opportunities and Technical collaborations.</p>
+                    <div class="social-links">
+                        <a href="mailto:sakthi404error@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/sakthi-rp" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/918667040274" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="contact-container">
-        <form id="contactForm">
+    <footer class="footer">
+        <p>&copy; 2024 Sakthi R P. All rights reserved.</p>
+    </footer>
 
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-
-            <button type="submit" class="btn btn-primary">Send Message</button>
-
-            <p id="formMessage"></p>
-        </form>
-    </div>
-    <div class="contact-info">
-    <p>
-Feel free to connect with me for HR opportunities, collaborations, or professional discussions. 
-I am always open to learning and new challenges.
-</p>
-
-    <div class="contact-links">
-        <a href="mailto:sakthi404error@gmail.com">📧 Email</a>
-        <a href="https://wa.me/918667040274" target="_blank">📱 WhatsApp</a>
-        <a href="https://linkedin.com/in/sakthi-rp" target="_blank">💼 LinkedIn</a>
-    </div>
-</div>
-</section>
-
-    <!-- JS -->
     <script src="script.js"></script>
 </body>
 </html>
