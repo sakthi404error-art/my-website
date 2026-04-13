@@ -115,3 +115,38 @@ function scrollToSection(id) {
         behavior: "smooth"
     });
 }
+// ===== TYPING EFFECT =====
+const textArray = [
+    "Sakthi R P",
+    "HR Professional",
+    "Web Developer",
+    "Business Enthusiast"
+];
+
+let index = 0;
+let charIndex = 0;
+const speed = 100;
+
+function typeEffect() {
+    if (charIndex < textArray[index].length) {
+        document.getElementById("typing").textContent += textArray[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, speed);
+    } else {
+        setTimeout(eraseEffect, 1500);
+    }
+}
+
+function eraseEffect() {
+    if (charIndex > 0) {
+        document.getElementById("typing").textContent =
+            textArray[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, speed / 2);
+    } else {
+        index = (index + 1) % textArray.length;
+        setTimeout(typeEffect, 300);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", typeEffect);
